@@ -1,18 +1,12 @@
-// const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-// const depositSchema = new mongoose.Schema({
-//   amount: {
-//     type: Number,
-//     required: true
-//   },
-//   description: {
-//     type: String,
-//     required: true
-//   },
-//   date: {
-//     type: Date,
-//     default: Date.now
-//   }
-// }, { timestamps: true });
+const DepositSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  status: { type: String, required: true },
+  date: { type: Date, required: true },
+  amount: { type: Number, required: true },
+  category: { type: String },
+  message: { type: String },
+});
 
-// module.exports = mongoose.model('Deposit', depositSchema);
+module.exports = mongoose.model("Deposit", DepositSchema);
