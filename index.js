@@ -15,7 +15,7 @@ app.use(cors());
 // Routes
  app.use('/api/deposits', require('./routes/depositRoutes'));
  app.use('/api/expenses', require('./routes/expenseRoutes'));
-// app.use('/api/goals', require('./routes/goalRoutes'));
+ app.use('/api/goals', require('./routes/goalRoutes'));
 
 const PORT = process.env.PORT || 5000;
 

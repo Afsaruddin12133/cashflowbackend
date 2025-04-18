@@ -1,0 +1,5 @@
+note-modules/
+important-documents/
+*.env
+*.key
+*.log
