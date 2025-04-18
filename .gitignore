@@ -1,5 +1,7 @@
-note-modules/
-important-documents/
-*.env
+# .gitignore
+node_modules/
+.env
 *.key
+*.pem
 *.log
+credentials/
