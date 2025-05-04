@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-
+const { verifyJWT } = require('../middlewares/authMiddleware');
+const { checkRole } = require('../middlewares/roleMiddleware');
 const { createExpense, getExpenses } = require('../Controllers/expenseController');
 
-router.post('/', createExpense);  // Add new expense
-router.get('/', getExpenses);     // Get all expenses
+router.post('/expenses', verifyJWT,checkRole('user'),createExpense);  // Add new expense
+router.get('/expenses',verifyJWT,checkRole('user'), getExpenses);     // Get all expenses
 
 module.exports = router;

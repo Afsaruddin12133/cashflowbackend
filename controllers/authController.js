@@ -101,7 +101,3 @@ module.exports = {
   login,
   firebaseOAuthLogin,
 };
-
-// exports.protectedResource = (req, res) => {
-//   res.json({ message: `Hello ${req.user.email}, you have access as ${req.user.role}` });
-// };

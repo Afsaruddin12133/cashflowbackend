@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDB = require('./config//db');
 const cors = require('cors');
+const authRouter = require('./routes/authRoutes');
 const depositRoute = require('./routes/depositRoutes');
 const expensesRoute = require('./routes/expenseRoutes');
 const goalsRoute = require('./routes/goalRoutes');
@@ -16,9 +17,10 @@ app.use(cors());
 connectDB();
 
 // Routes
- app.use('/api/deposits', depositRoute);
- app.use('/api/expenses', expensesRoute);
- app.use('/api/goals', goalsRoute);
+ app.use('/api/auth', authRouter);
+ app.use('/api', depositRoute);
+ app.use('/api', expensesRoute);
+ app.use('/api', goalsRoute);
 
 const PORT = process.env.PORT || 7000;
 
