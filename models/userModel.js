@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
   },
   authProvider: {
     type: String,
-    enum: ['manual', 'google', 'facebook'],
+    enum: ['manual', 'google.com', 'facebook.com'],
     default: 'manual'
   }
 }, {
