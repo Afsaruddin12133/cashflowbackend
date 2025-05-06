@@ -7,4 +7,5 @@ const { checkRole } = require('../middlewares/roleMiddleware');
 router.post('/budgets',verifyJWT,checkRole('user','admin'), createBudget);
 router.get('/budgets', verifyJWT,checkRole('user','admin'), getAllBudgets);
 
+
 module.exports = router;
