@@ -8,3 +8,5 @@ router.post('/goals',verifyJWT,checkRole('user'), createGoal);
 router.get('/goals',verifyJWT,checkRole('user'), getGoals);     
 
 module.exports = router;
+
+

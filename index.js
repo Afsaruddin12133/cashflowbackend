@@ -6,6 +6,8 @@ const depositRoute = require('./routes/depositRoutes');
 const expensesRoute = require('./routes/expenseRoutes');
 const goalsRoute = require('./routes/goalRoutes');
 const budgetRoutes = require('./routes/budgetRoutes');
+const loanRoutes = require('./routes/loanRoutes');
+const investmentRoutes = require('./routes/investmentRoutes');
 require('dotenv').config();
 
 const app = express();
@@ -24,6 +26,8 @@ connectDB();
  app.use('/api', expensesRoute);
  app.use('/api', goalsRoute);
  app.use('/api', budgetRoutes);
+ app.use('/api', loanRoutes);
+ app.use('/api', investmentRoutes);
 
 const PORT = process.env.PORT || 7000;
 
