@@ -19,6 +19,7 @@ app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 
 // Connect Database
 connectDB();
+//console.log(JSON.stringify(require('./firebaseServiceAccountKey.json')));
 
 // Routes
  app.use('/api/auth', authRouter);
