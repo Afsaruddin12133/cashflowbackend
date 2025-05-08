@@ -7,10 +7,6 @@
     "start": "node --watch index.js",
     "dev": "nodemon index.js"
   },
-  "engines": {
-  "node": "22.11.0"
-},
-
   "keywords": [],
   "author": "",
   "license": "ISC",
