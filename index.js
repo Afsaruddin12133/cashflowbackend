@@ -9,6 +9,7 @@ const budgetRoutes = require('./routes/budgetRoutes');
 const loanRoutes = require('./routes/loanRoutes');
 const investmentRoutes = require('./routes/investmentRoutes');
 const generateReportRoutes = require('./routes/generateReport');
+const analyticsRoutes = require('./routes/analyticsRoutes');
 require('dotenv').config();
 
 const app = express();
@@ -31,6 +32,7 @@ connectDB();
  app.use('/api', loanRoutes);
  app.use('/api', investmentRoutes);
  app.use('/api', generateReportRoutes);
+ app.use('/api', analyticsRoutes);
 
 const PORT = process.env.PORT || 7000;
 
