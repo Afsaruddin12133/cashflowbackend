@@ -37,7 +37,12 @@ const investmentSchema = new mongoose.Schema({
   },
   notes: {
     type: String,
-  }
+  },
+    userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
 }, { timestamps: true });
 
 module.exports = mongoose.model('Investment', investmentSchema);

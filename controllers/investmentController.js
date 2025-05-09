@@ -4,7 +4,10 @@ const Investment = require('../models/Investment');
 // Create new investment
 exports.createInvestment = async (req, res) => {
   try {
-    const investment = new Investment(req.body);
+    const investment = new Investment({
+      ...req.body,
+      userId: req.user.id,
+    });
     await investment.save();
     res.status(201).json(investment);
   } catch (error) {

@@ -11,7 +11,8 @@ const createGoal = async (req, res) => {
       alreadySaved,
       priority,
       desiredDate,
-      category
+      category,
+      userId: req.user.id, 
     });
 
     const savedGoal = await newGoal.save();

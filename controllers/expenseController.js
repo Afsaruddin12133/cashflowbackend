@@ -5,7 +5,7 @@ const createExpense = async (req, res) => {
   try {
     const { amount, description, category, date } = req.body;
 
-    const newExpense = new Expense({ amount, description, category, date });
+    const newExpense = new Expense({ amount, description, category, date,userId: req.user.id });
     const savedExpense = await newExpense.save();
 
     res.status(201).json(savedExpense);

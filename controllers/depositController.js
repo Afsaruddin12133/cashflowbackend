@@ -5,7 +5,15 @@ const createDeposit = async (req, res) => {
   try {
     const { name, status, date, amount, category, message } = req.body;
 
-    const newDeposit = new Deposit({ name, status, date, amount, category, message });
+    const newDeposit = new Deposit({
+       name, 
+       status, 
+       date, 
+       amount, 
+       category, 
+       message,
+       userId: req.user.id 
+    });
     const savedDeposit = await newDeposit.save();
 
     res.status(201).json(savedDeposit);

@@ -34,6 +34,11 @@ const loanSchema = new mongoose.Schema({
   description: {
     type: String,
   },
+  userId: {
+  type: mongoose.Schema.Types.ObjectId,
+  ref: 'User',
+  required: true,
+},
 }, { timestamps: true });
 
 module.exports = mongoose.model('Loan', loanSchema);

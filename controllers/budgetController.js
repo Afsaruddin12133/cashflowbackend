@@ -3,7 +3,10 @@ const Budget = require('../models/Budget');
 // Create new budget
 const createBudget = async (req, res) => {
   try {
-    const budget = new Budget(req.body);
+    const budget = new Budget({
+      ...req.body,
+      userId: req.user.id
+    });
     await budget.save();
     res.status(201).json(budget);
   } catch (err) {

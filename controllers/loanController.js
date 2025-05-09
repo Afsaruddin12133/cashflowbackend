@@ -4,7 +4,10 @@ const Loan = require('../models/Loan');
 // Create new loan
 exports.createLoan = async (req, res) => {
   try {
-    const loan = new Loan(req.body);
+    const loan = new Loan({
+      ...req.body,
+      userId: req.user.id, 
+    });
     await loan.save();
     res.status(201).json(loan);
   } catch (error) {

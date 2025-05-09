@@ -4,7 +4,7 @@ const { verifyJWT } = require('../middlewares/authMiddleware');
 const { checkRole } = require('../middlewares/roleMiddleware');
 const { createExpense, getExpenses } = require('../controllers/expenseController');
 
-router.post('/expenses', verifyJWT,checkRole('user'),createExpense);  // Add new expense
-router.get('/expenses',verifyJWT,checkRole('user'), getExpenses);     // Get all expenses
+router.post('/expenses', verifyJWT,checkRole('user','admin'),createExpense);  // Add new expense
+router.get('/expenses',verifyJWT,checkRole('user','admin'), getExpenses);     // Get all expenses
 
 module.exports = router;
