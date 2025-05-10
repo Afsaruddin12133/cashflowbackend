@@ -24,3 +24,13 @@ exports.getLoans = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+// Get loans by id
+exports.getLoansById = async (req, res) => {
+  try {
+    const loans = await Loan.find({userId:req.params.id});
+    if(!loans)return res.status(404).json({ message: 'loan not found' });
+    res.status(200).json(loans);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

@@ -23,5 +23,14 @@ const getExpenses = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+const getExpensesById = async (req, res) => {
+  try {
+    const expenses = await Expense.find({userId:req.params.id}).sort({ createdAt: -1 });
+    if(!expenses) return res.status(404).json({ message: 'Expense not found' });
+    res.json(expenses);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
-module.exports = { createExpense, getExpenses };
+module.exports = { createExpense, getExpenses,getExpensesById };

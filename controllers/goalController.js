@@ -32,4 +32,16 @@ const getGoals = async (req, res) => {
   }
 };
 
-module.exports = { createGoal, getGoals };
+// Get all Goals By Id..
+const getGoalsById = async (req, res) => {
+  try {
+    const goals = await Goal.find({userId:req.params.id}).sort({ createdAt: -1 });
+    if(!goals) return res.status(404).json({massage: 'Goal is not found' })
+    res.json(goals);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+
+module.exports = { createGoal, getGoals,getGoalsById };

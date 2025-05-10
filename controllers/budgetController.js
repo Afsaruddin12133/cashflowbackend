@@ -18,6 +18,16 @@ const createBudget = async (req, res) => {
 const getAllBudgets = async (req, res) => {
   try {
     const budgets = await Budget.find();
+    if(!budgets) return res.status(404).json({ error: 'Budget not found' });
+    res.status(200).json(budgets);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+const getAllBudgetsById = async (req, res) => {
+  try {
+    const budgets = await Budget.find({userId:req.params.id});
+    if(!budgets) return res.status(404).json({ error: 'Budget not found' });
     res.status(200).json(budgets);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -26,5 +36,6 @@ const getAllBudgets = async (req, res) => {
 
 module.exports = {
     createBudget,
-    getAllBudgets
+    getAllBudgets,
+    getAllBudgetsById
 }

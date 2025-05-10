@@ -31,5 +31,14 @@ const getDeposits = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+const getDepositsById = async (req, res) => {
+  try {
+    const deposits = await Deposit.find({userId:req.params.id});
+    if(!deposits) return res.status(404).json({ message: "Deposit not found" });
+    res.json(deposits);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
-module.exports = { createDeposit, getDeposits };
+module.exports = { createDeposit, getDeposits,getDepositsById };
